@@ -80,8 +80,6 @@ SimpleThreadOne prints numbers from 1 to 2000. It then sets statusFlag to true a
 
 14. Race conditions may occur if two threads call makeBid simultaneously. Both threads might read the same currentHighestBid and secondHighestBid values before either updates them. This can lead to incorrect updates, such as both threads setting currentHighestBid and secondHighestBid based on outdated information.
 
-To make SecondPriceAuction thread-safe, synchronize the makeBid method:
-
 public synchronized void makeBid(int amount) {
     if (amount > currentHighestBid) {
         secondHighestBid = currentHighestBid;
